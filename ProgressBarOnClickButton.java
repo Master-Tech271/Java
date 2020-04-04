@@ -24,6 +24,10 @@ public class ProgressBarOnClickButton extends JFrame{
 	JLabel elapsedtime;
 	JLabel remainingtime;
 	JLabel temp;
+	JButton back;
+	JPanel footer_btn;
+	JButton next;
+	JButton cancel;
 	public ProgressBarOnClickButton() {  
 		this.setResizable(false);
 		this.setSize(500, 200);
@@ -45,13 +49,22 @@ public class ProgressBarOnClickButton extends JFrame{
 		content.add(content1, BorderLayout.PAGE_START);
 		btn = new JButton("Start");
 		btn.setSize(100, 50);
+		footer_btn = new JPanel();
+		content.add(footer_btn, BorderLayout.PAGE_END);
+		back = new JButton("Back");
+		next = new JButton("Next");
+		cancel = new JButton("Cancel");
+		footer_btn.add(back);
+		footer_btn.add(next);
+		footer_btn.add(cancel);
 		content1.add(btn);
+		
 		btn.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btn) {
-					while(i<=2000){       
+					while(i<=100){       
 						 try {
 							  Thread.sleep(150);
 		                        jb.paintImmediately(0, 0, 200, 200);
